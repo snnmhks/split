@@ -40,9 +40,26 @@ vector<string> Split(string list, char SplitChar)
 
 int main()
 {
-	vector<string> aaa = Split("   aaa bbb ccc", ' ');
-	for (int i = 0; i < aaa.size(); i++)
+	string answer = "";
+	vector<string> list = Split("-1 -2 -3 -4", ' ');
+	int MaxNum = stoi(list[0]);
+	int MaxNumIndex = 0;
+	int MinNum = stoi(list[0]);
+	int MinNumIndex = 0;
+	for (int i = 0; i < list.size(); i++)
 	{
-		cout << aaa[i] << endl;
+		int tmp = stoi(list[i]);
+		if (tmp >= MaxNum)
+		{
+			MaxNum = tmp;
+			MaxNumIndex = i;
+		}
+		if (tmp <= MinNum)
+		{
+			MinNum = tmp;
+			MaxNumIndex = i;
+		}
 	}
+	answer = list[MinNumIndex] + ' ' + list[MaxNumIndex];
+	cout << MaxNumIndex;
 }
